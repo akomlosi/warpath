@@ -1,9 +1,9 @@
 import {Unit} from './Unit';
 
 export class Tank extends Unit {
-    constructor() {
+    constructor(position:Array<number>) {
         super({
-            position : [1,1],
+            position : position,
             speed : 1,
             health : 5,
             shootingRange: 2,
