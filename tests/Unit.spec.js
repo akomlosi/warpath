@@ -42,7 +42,7 @@ describe('Unit test', ()=> {
 	});
 	it('cannot be heal more then the max health', ()=>{
 		expect(unit.health).to.equal(5);
-		assert.throw(function(){unit.heal(1), Error, 'Health is full'});
+		assert.throws(function(){unit.heal(1)}, 'Health is full');
 	});
 	it('can be destroyed', ()=> {
 		expect(unit.isAlive()).to.be.true;

@@ -4,7 +4,6 @@ export class Unit implements IUnit {
     protected position:Array<number>;
     protected speed:number;
     protected shootingRange:number;
-    protected maxHealth:number;
     protected health:number;
     protected firePower:number;
     private maxHealth:number;
@@ -13,7 +12,7 @@ export class Unit implements IUnit {
         this.position = config.position;
         this.speed = config.speed;
         this.health = config.health;
-        this.maxHealth = config.health;
+        this.maxHealth = this.health;
         this.shootingRange = config.shootingRange;
         this.firePower = config.firePower;
     }
