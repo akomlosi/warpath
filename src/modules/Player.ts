@@ -7,20 +7,20 @@ export interface IPlayer {
 }
 
 export class Player implements IPlayer {
-	protected army: Array<Unit>;
+	protected army: {[uid: string]: Unit};
 	public credits: number;
 	private _isActive: boolean;
 
 
 	constructor(config: {credits: number}) {
 		this.credits = config.credits;
-		this.army = Array<Unit>();
+		this.army = {};
 		this._isActive = false;
 	}
 
 	addUnitToArmy(unit: Unit) {
 		if (this.credits > 0 && this.credits - unit.price >= 0) {
-			this.army.push(unit);
+			this.army[unit.getUId()] = unit;
 			this.credits -= unit.price;
 		}
 		else {

@@ -4,7 +4,8 @@ import { Player } from '../src/modules/Player.js';
 let player = null;
 
 let mockedUnit = {
-	price: 10
+	price: 10,
+	getUId: ()=> 'mock-uid'
 }
 
 describe('Player test', ()=> {
@@ -33,13 +34,13 @@ describe('Player test', ()=> {
 	});
 
 	it('has an empty initial army', ()=> {
-		expect(player.army).to.be.an('array');
-		expect(player.army).to.have.lengthOf(0);
+		expect(player.army).to.be.an('object');
+		assert.equal(Object.keys(player.army).length, 0);
 	});
 
 	it('can Unit be added to the army', ()=> {
 		player.addUnitToArmy(mockedUnit);
-		expect(player.army).to.have.lengthOf(1);
+		assert.equal(Object.keys(player.army).length, 1);
 	});
 	
 	it('credits will be decreased when unit was added to army', ()=>{

@@ -4,4 +4,5 @@ export interface IUnit {
 	heal(amount: number): void;
 	attack(): number;
 	isAlive(): boolean;
+	getUId(): string;
 }

@@ -8,6 +8,7 @@ export class Unit implements IUnit {
 	protected firePower: number;
 	public price: number;
 	private maxHealth: number;
+	private _id: string;
 
 	constructor(config: {
 		position: Array<number>,
@@ -24,6 +25,8 @@ export class Unit implements IUnit {
 		this.shootingRange = config.shootingRange;
 		this.firePower = config.firePower;
 		this.price = config.price;
+
+		this._id = 'unit-' + new Date().getTime();
 	}
 
 	damage(damage: number) {
@@ -47,5 +50,9 @@ export class Unit implements IUnit {
 
 	isAlive(): boolean {
 		return this.health > 0;
+	}
+
+	getUId(): string {
+		return this._id;
 	}
 }
