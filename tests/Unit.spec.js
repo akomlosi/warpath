@@ -10,11 +10,15 @@ describe('Unit test', ()=> {
 			speed : 1,
 			health : 5,
 			shootingRange: 2,
-			firePower : 2
+			firePower : 2,
+			price : 10
 		})
 	});
 	afterEach(()=> {
 		unit = null;
+	});
+	it('has price', ()=>{
+		expect(unit.price).to.equal(10);
 	});
 	it('has firepower', ()=>{
 		expect(unit.firePower).to.equal(2);
@@ -42,7 +46,7 @@ describe('Unit test', ()=> {
 	});
 	it('cannot be heal more then the max health', ()=>{
 		expect(unit.health).to.equal(5);
-		assert.throws(function(){unit.heal(1)}, 'Health is full');
+		assert.throws(()=>{unit.heal(1)}, 'Health is full');
 	});
 	it('can be destroyed', ()=> {
 		expect(unit.isAlive()).to.be.true;
