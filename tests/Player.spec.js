@@ -6,7 +6,7 @@ let player = null;
 let mockedUnit = {
 	price: 10,
 	getUId: ()=> 'mock-uid'
-}
+};
 
 describe('Player test', ()=> {
 	beforeEach(()=> {
@@ -62,5 +62,16 @@ describe('Player test', ()=> {
 		expect(player.credits).to.equal(30);
 		player.updateCredits(-5);
 		expect(player.credits).to.equal(25);
+	});
+
+	it('can give back Unit by its ID', ()=>{
+		player.addUnitToArmy(mockedUnit);
+		expect(player.getUnitById('mock-uid')).to.equal(mockedUnit);
+	});
+
+	it('throws error if unit cannot by found in army', ()=>{
+		assert.throws(()=> {
+			player.getUnitById('ghost-unit')
+		}, 'Non-existent unit');
 	});
 });

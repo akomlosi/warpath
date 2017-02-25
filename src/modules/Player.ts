@@ -4,6 +4,7 @@ export interface IPlayer {
 	activate(): void;
 	deActivate(): void;
 	updateCredits(amount: number): void;
+	getUnitById(id: string): Unit;
 }
 
 export class Player implements IPlayer {
@@ -42,5 +43,12 @@ export class Player implements IPlayer {
 
 	updateCredits(amount: number) {
 		this.credits += amount;
+	};
+
+	getUnitById(id: string): Unit {
+		if (!this.army[id]) {
+			throw Error('Non-existent unit');
+		}
+		return this.army[id];
 	}
 }
