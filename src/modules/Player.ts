@@ -2,7 +2,7 @@ import {Unit} from './Unit';
 export interface IPlayer {
 	addUnitToArmy(unit: Unit): void;
 	activate(): void;
-	deActivate(): void;
+	standby(): void;
 	updateCredits(amount: number): void;
 	getUnitById(id: string): Unit;
 }
@@ -37,7 +37,7 @@ export class Player implements IPlayer {
 		this._isActive = true;
 	};
 
-	deActivate() {
+	standby() {
 		this._isActive = false;
 	};
 

@@ -29,7 +29,7 @@ describe('Player test', ()=> {
 	it('can be activated and deactivated', ()=>{
 		player.activate();
 		expect(player.isActive).to.be.true;
-		player.deActivate();
+		player.standby();
 		expect(player.isActive).to.be.false;
 	});
 
