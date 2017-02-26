@@ -1,13 +1,17 @@
 module.exports = {
-	entry: './src/index.ts',
+	entry: './src/index.tsx',
 	output: {
-		filename: './dist/bundle.js',
+		filename: './dist/bundle.js'
 	},
 	resolve: {
-		extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+		extensions: ['', '.webpack.js', '.web.js', '.ts', 'tsx', '.js']
 	},
 
 	module: {
-		loaders: [{ test: /\.ts$/, loader: 'ts-loader' }]
+		loaders: [{ test: /\.tsx$/, loader: 'ts-loader' }]
+	},
+	externals: {
+		"react": "React",
+		"react-dom": "ReactDOM"
 	}
 };
